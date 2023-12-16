@@ -29,6 +29,7 @@ const AroundYou = () => {
     //     console.log(err);
     //   })
     //   .finally(() => setLoading(false));
+    setCountry("KE");
   }, [country]);
 
   if (isFetching && loading) return <Loader title="Loading songs around you" />;
@@ -37,8 +38,8 @@ const AroundYou = () => {
   return (
     <div className="flex flex-col">
       <h2 className="font-bold text-3xl text-white text-left">
-        Around You
-        <span className="font-black text-amber-50">{country}</span>
+        Around You{" "}
+        <span className="font-black text-amber-50 text-xs">{country}</span>
       </h2>
       <div className="flex flex-wrap sm:justify-start justify-center gap-8">
         {data?.tracks
