@@ -12,11 +12,12 @@ const Discover = () => {
   const { activeSong, isPlaying, genreListId } = useSelector(
     (state) => state.player,
   );
-  const genreTitle = "Pop";
-  const { data, isFetching, error } = useGetTopChartsQuery();
 
+  let { data, isFetching, error } = useGetTopChartsQuery();
   if (isFetching) return <Loader title="Loading songs..." />;
   if (error) return <Error />;
+
+  const genreTitle = genres.find((el) => el.value === genreListId)?.title;
 
   return (
     <div className="flex flex-col">
